@@ -20,6 +20,7 @@ export class SearchComponent implements OnInit {
   searching = false;
   searchFailed = false;
   item: any;
+  appServices: any;
 
   ngOnInit() {
   }
@@ -46,6 +47,6 @@ export class SearchComponent implements OnInit {
   }
   itemSelected(item){
     console.log(item.appServices[0].type);
-    this.item=item;
+    this.appServices=item.appServices;
   }
 }
