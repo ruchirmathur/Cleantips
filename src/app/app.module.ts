@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { SearchresultsModule } from './searchresults/searchresults.module';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SearchresultsModule } from './searchresults/searchresults.module';
     FormsModule,
     SharedModule,
     HttpClientModule,
+    AngularSvgIconModule,
     NgbModule.forRoot()
   ],
   providers: [],
