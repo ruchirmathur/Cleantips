@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
   searchFailed = false;
   item: any;
   appServices: any;
+  show: boolean = false;
 
   ngOnInit() {
   }
@@ -47,6 +48,11 @@ export class SearchComponent implements OnInit {
   }
   itemSelected(item){
     console.log(item.appServices[0].type);
+    if (item.appServices) {
     this.appServices=item.appServices;
+    this.show =true;
+    } else{
+      this.show =false;
+    }
   }
 }
