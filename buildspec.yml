@@ -1,9 +1,15 @@
-version: 0.2
-
+version: 0.2            
 phases:
-install:
+  install:
     runtime-versions:
-        nodejs	: 10
+      nodejs: 10
+    commands:
+      - npm install npm@latest -g
+      - npm install -g @angular/cli
+  pre_build:
+    commands:
+      - echo Prebuild steps
+      - npm install
   build:
     commands:
-      - npm install && npm run build-prod
+      - ng build --prod
