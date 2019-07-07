@@ -20,7 +20,7 @@ phases:
       - ng build --prod
   post_build:
     commands:
-      - aws s3 rm s3://cleantips --recursive
+      - aws s3 rm s3://cleantipsbuild --recursive
       - echo S3 bucket is cleared.
       - aws s3 cp dist s3://cleantipsbuild/Cleantips --recursive
       - echo Build complete on `date`
