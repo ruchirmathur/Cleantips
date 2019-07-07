@@ -21,6 +21,6 @@ phases:
   post_build:
     commands:
       - aws s3 rm s3://cleantipsbuild --recursive
-      - echo S3 bucket
+      - echo S3 buckets
       - aws s3 cp dist/Cleantips s3://cleantipsbuild --recursive
       - echo Build complete on `date`
