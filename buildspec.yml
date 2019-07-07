@@ -13,7 +13,7 @@ phases:
       - npm install -g @angular/cli
   pre_build:
     commands:
-      - echo Prebuild steps
+      - echo Prebuild step
       - npm install
   build:
     commands:
@@ -22,7 +22,7 @@ phases:
     commands:
       - aws s3 rm s3://cleantipsbuild --recursive
       - echo S3 bucket is cleared.
-      - aws s3 cp dist s3://cleantipsbuild/Cleantips --recursive
+      - aws s3 cp dist s3://cleantipsbuild --recursive
       - echo Build complete on `date`
 artifacts:
   files:
