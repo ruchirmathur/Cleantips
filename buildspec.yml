@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    S3_BUCKET: "cleantipsbuild"
+    S3_BUCKET: "cleantips.net"
     APP_NAME: "Cleantips"            
 phases:
   install:
@@ -20,7 +20,7 @@ phases:
       - ng build --prod
   post_build:
     commands:
-      - aws s3 rm s3://cleantipsbuild --recursive
+      - aws s3 rm s3://cleantips.net --recursive
       - echo S3 buckets
-      - aws s3 cp dist/Cleantips s3://cleantipsbuild --recursive
+      - aws s3 cp dist/Cleantips s3://cleantips.net --recursive
       - echo Build complete on `date`
