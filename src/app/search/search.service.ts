@@ -30,7 +30,7 @@ configUrl = 'assets/config.json';
     if (term === '') {
       return of([]);
     }
-    return   this.http.post("http://localhost:8080/getApplicationServicesv1",request);
+    return   this.http.post("http://localhost:8080/services",request);
 
   }
 }
