@@ -138,3 +138,15 @@ body {
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.location-search-input {
+    padding-left: 50px!important;
+    height: 40px!important;
+    background-position: left 13px center;
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    margin-bottom: 0;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto;
+}

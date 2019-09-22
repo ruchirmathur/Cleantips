@@ -1,58 +1,125 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <h1 class="display-4">Architecture App Store</h1>
-  <p class="lead">Search for the most recommended and compliant architectures on AWS</p>
+    <h1 class="display-4">AWS Architecture App Store</h1>
+    <p class="lead">Search for the most recommended and compliant architectures on AWS</p>
+</div>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" *ngIf="show">
+    <h5>Here is your recommended {{ archImage }} AWS Architecture</h5>
 </div>
 <div class="main" *ngIf="!show">
-  <div class="input-group">
-    <ng-template #rt let-r="result" let-t="term">
-      <ngb-highlight [result]="r.architecture" [term]="t"></ngb-highlight>
-    </ng-template>
-    <input placeholder="Search" id="typeahead-template" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"
-      [resultTemplate]="rt" [inputFormatter]="formatter" (selectItem)="itemSelected($event.item)" />
-    <div class="input-group-append">
-      <button class="btn btn-secondary" type="button">
+    <div class="input-group">
+        <ng-template #rt let-r="result" let-t="term">
+            <ngb-highlight [result]="r.architecture" [term]="t"></ngb-highlight>
+        </ng-template>
+        <input placeholder="Search" id="typeahead-template" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"
+            [resultTemplate]="rt" [inputFormatter]="formatter" (selectItem)="itemSelected($event.item)" />
+        <div class="input-group-append">
+            <button class="btn btn-secondary" type="button">
         <i class="fa fa-search"></i>
       </button>
+        </div>
     </div>
-  </div>
-  <p class="mt-4 text-center"><a href="">Search</a></p>
+    <p class="mt-4 text-center"><a href="">Search</a></p>
 </div>
 <section class="section pt-0 position-relative pull-top" *ngIf="!show">
-  <div class="container">
-    <div class="rounded shadow p-5 bg-white">
-      <div class="row">
-        <div class="col-md-4 mb-4 mb-md-0 text-center">
-          <i class="ti-paint-bucket text-primary h1"></i>
-          <h3 class="mt-4 text-capitalize h5 ">Search</h3>
-          <p class="regular text-muted">Search for highly secure & performant AWS cloud architectures that can be spun up in a matter of seconds.</p>
+    <div class="container">
+        <div class="rounded shadow p-5 bg-white">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <i class="ti-paint-bucket text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5 ">Search</h3>
+                    <p class="regular text-muted">Search for highly secure & performant AWS cloud architectures that can be spun up in a matter of seconds.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <i class="ti-shine text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5 ">Review</h3>
+                    <p class="regular text-muted">Review and make customizations on top of the architecture recommended</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <i class="ti-thought text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5 ">Build</h3>
+                    <p class="regular text-muted">Create architecture using the generated cloudformation templates.</p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 mb-4 mb-md-0 text-center">
-          <i class="ti-shine text-primary h1"></i>
-          <h3 class="mt-4 text-capitalize h5 ">Review</h3>
-          <p class="regular text-muted">Review and make customizations on top of the architecture recommended</p>
-        </div>
-        <div class="col-md-4 mb-4 mb-md-0 text-center">
-          <i class="ti-thought text-primary h1"></i>
-          <h3 class="mt-4 text-capitalize h5 ">Build</h3>
-          <p class="regular text-muted">Create architecture using the generated cloudformation templates.</p>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
-<div class="container" *ngFor="let appService of appServices">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 box-shadow">
-      <div class="card-header">
-        <img class="img-responsive" src="/assets/images/png/{{ appService.type }}.png" width="8%" >
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title"> {{ appService.type }} <small class="text-muted"></small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>10 users included</li>
-        </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Review and Edit Property</button>
-      </div>
+<div *ngIf="show">
+    <div>
+        <img class="rounded mx-auto d-block" src="/assets/images/png/{{ archImage }}.png" width="45%">
     </div>
-  </div>
 </div>
+<div *ngIf="show">
+    <div class="card-body">
+        <img class="rounded mx-auto d-block" src="/assets/images/png/arrow.png" width="4%">
+    </div>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" *ngIf="show">
+        <h5>Recommended AWS Services for your {{ archImage }} architecture</h5>
+    </div>
+    <div class="container" *ngFor="let appService of appServices">
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <img class="img-responsive" src="/assets/images/png/{{ appService.type }}.png" width="8%">
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> {{ appService.type }} <small class="text-muted"></small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">Review Properties</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="show">
+        <div class="card-body">
+            <img class="rounded mx-auto d-block" src="/assets/images/png/arrow.png" width="4%">
+        </div>
+    </div>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" *ngIf="show">
+        <h5>Whats the name of your stack ?</h5>
+        <div class="rounded shadow p-5 bg-white">
+            <input type="text" class="location-search-input ng-pristine ng-valid ng-touched" [(ngModel)]='architecture'>
+        </div>
+    </div>
+    <div *ngIf="show">
+        <div class="card-body">
+            <img class="rounded mx-auto d-block" src="/assets/images/png/arrow.png" width="4%">
+        </div>
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" *ngIf="show">
+            <h5>Choose the region to build your services</h5>
+            <div class="col rounded shadow p-5 bg-white">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose your Region</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem (click)="select(us-east-2)" >US East (Ohio) Region</button>
+                        <button ngbDropdownItem (click)="select(us-east-1)" >US East (N. Virginia)</button>
+                        <button ngbDropdownItem (click)="select(us-west-2)">US West (Oregon) Region</button>
+                        <button ngbDropdownItem (click)="select(us-west-1)">US West (Northern California) Region</button>
+                        <button ngbDropdownItem (click)="select(sa-east-1)">South America (São Paulo) Region</button>
+                        <button ngbDropdownItem (click)="select(eu-west-2)">Europe (London) Region</button>
+                        <button ngbDropdownItem (click)="select(eu-west-3)">Europe (Paris) Region</button>
+                        <button ngbDropdownItem (click)="select(eu-north-1)">Europe (Stockholm) Region</button>
+                        <button ngbDropdownItem (click)="select(me-south-1)">Middle East (Bahrain) Region</button>
+                        <button ngbDropdownItem (click)="select(eu-central-1)">Europe (Frankfurt) Region</button>
+                        <button ngbDropdownItem (click)="select(eu-west-1)">Europe (Ireland) Region</button>
+                        <button ngbDropdownItem (click)="select(cn-north)">Mainland China (Beijing) Region</button>
+                        <button ngbDropdownItem (click)="select(cn-northwest-1)">Mainland China (Ningxia) Region</button>
+                        <button ngbDropdownItem (click)="select(ap-southeast-2)">Asia Pacific (Sydney) Region</button>
+                        <button ngbDropdownItem (click)="select(ap-northeast-3)">Asia Pacific (Osaka) Local Region</button>
+                        <button ngbDropdownItem (click)="select(ap-northeast-1)">Asia Pacific (Tokyo) Region</button>
+                        <button ngbDropdownItem (click)="select(ap-south-1)">Asia Pacific (Mumbai) Region</button>
+                        <button ngbDropdownItem (click)="select(ap-southeast-1)">Asia Pacific (Singapore) Region</button>
+                        <button ngbDropdownItem (click)="select(ap-northeast-2)">Asia Pacific (Seoul) Region</button>
+                        <button ngbDropdownItem (click)="select(ap-east-1)">Asia Pacific (Hong Kong) Region</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="show">
+            <div class="card-body">
+                <img class="rounded mx-auto d-block" src="/assets/images/png/arrow.png" width="4%">
+            </div>
+            <div *ngIf="showTemplateButton" class="container">
+                <button type="button" class="btn btn-lg btn-block btn-primary" (click)="openModal()">Lets Build Now !!</button>
+            </div>
