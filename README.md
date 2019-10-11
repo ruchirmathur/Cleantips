@@ -1,6 +1,6 @@
 # Cleantips
 
-Cleantips project is built to help Dev Ops engineering groups and Developers in creating best in class architectures by using proven architecture practices and patterns. Architecture patterns can be easily stored on this platform and can be retrieved by simple searches.
+Cleantips platform is built to help Dev Ops engineering groups and Developers in creating best in class application architectures by using proven  practices and patterns. Architecture patterns can be easily stored on this platform and can be retrieved by simple searches.
 
 ## Development server
 
