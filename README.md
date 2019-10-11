@@ -1,6 +1,6 @@
 # Cleantips
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+Cleantips project is built to help Dev Ops engineering groups and Developers in creating best in class architectures by using proven architecture practices and patterns. Architecture patterns can be easily stored on this platform and can be retrieved by simple searches.
 
 ## Development server
 
